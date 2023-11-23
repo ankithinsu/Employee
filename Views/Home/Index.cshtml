@@ -1,0 +1,56 @@
+﻿@model IEnumerable<EmployeeModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="align-content-end">
+            @Html.ActionLink("Create","Create","Home",null,new {@class="btn btn-primary btn-sm"})
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th>Employee Code</th>
+                        <th>Employee Name</th>
+                        <th>Date Of Birth</th>
+                        <th>Gender</th>
+                        <th>Department</th>
+                        <th>Designation</th>
+                        <th>BasicSalary</th>
+                        <th>DearnessAllowance</th>
+                        <th>ConveyanceAllowance</th>
+                        <th>HouseRentAllowance</th>
+                        <th>PT</th>
+                        <th>TotalSalary</th>
+                        <th>Action</th>
+                    </tr>
+                </tbody>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayName(Convert.ToString(item.EmployeeCode))</td>
+                            <td>@Html.DisplayName(item.EmployeeName)</td>
+                            <td>@Html.DisplayName(Convert.ToString(item.DateOfBirth))</td>
+                            <td>@Html.DisplayName(item.Gender==true?"Male":"Female")</td>
+                            <td>@Html.DisplayName(item.Department)</td>
+                            <td>@Html.DisplayName(item.Designation)</td>
+                            <td>@Html.DisplayName(Convert.ToString(item.BasicSalary))</td>
+                            <td>@Html.DisplayName(Convert.ToString(item.DearnessAllowance))</td>
+                            <td>@Html.DisplayName(Convert.ToString(item.ConveyanceAllowance))</td>
+                            <td>@Html.DisplayName(Convert.ToString(item.HouseRentAllowance))</td>
+                            <td>@Html.DisplayName(Convert.ToString(item.PT))</td>
+                            <td>@Html.DisplayName(Convert.ToString(item.TotalSalary))</td>
+                            <td>@Html.ActionLink("Edit","Edit",new {id=item.EmployeeID},new {@class="btn btn-success btn-sm"})</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
